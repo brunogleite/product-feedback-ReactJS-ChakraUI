@@ -1,0 +1,20 @@
+{
+  "name": "product-feedback-ReactJS-ChakraUI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunogleite/product-feedback-ReactJS-ChakraUI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunogleite/product-feedback-ReactJS-ChakraUI/issues"
+  },
+  "homepage": "https://github.com/brunogleite/product-feedback-ReactJS-ChakraUI#readme"
+}
