@@ -1,5 +1,6 @@
 import { Button } from "@chakra-ui/react";
 import Navbar from "./components/navbar";
+import FilterTags from "./components/filterTags";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
      <Button size="md" variant='primary'>
         Welcome
       </Button>
+      <FilterTags />
       <Navbar />
     </div>
   );
