@@ -1,21 +1,24 @@
 import { Box, Heading, Text, Flex } from "@chakra-ui/react";
+import UpvoteSuggestion from "./upvoteSuggestion";
+import { IoChatbubbleSharp } from "react-icons/io5";
 
 export default function SuggestionItemList({product}){
-    console.log(product.comments)
+    console.log(product)
 
     return(
         <Box 
         bgColor="white"
         borderRadius="base"
+        w="100%"
         maxW="825px"
         my="5">
             <Flex 
             alignItems="center"
             py="7"
             px="8">
-                <Flex>
+                <Flex alignItems="center">
                     <Box>
-
+                        <UpvoteSuggestion number={product.upvotes} />
                     </Box>
                     <Box>
                         <Heading 
@@ -33,9 +36,12 @@ export default function SuggestionItemList({product}){
                     </Box>
                     </Box>
                 </Flex>
-                <Box ml="auto">
-                    <Text>{product.comments === undefined ? 0 : product.comments.length }</Text>
-                </Box>
+                <Flex alignItems="center" ml="auto">
+                    <Box mr="2">
+                        <IoChatbubbleSharp color="#CDD2EE" />
+                    </Box>
+                    <Text color="darkBlue10" fontWeight="bold">{product.comments === undefined ? 0 : product.comments.length }</Text>
+                </Flex>
             </Flex>
         </Box>
     )

@@ -14,7 +14,7 @@ function App() {
         <FilterTags />
         <FilterRoadmap />
       </Box>
-      <Box>
+      <Box w="full">
         <Navbar />
         <SuggestionList />
       </Box>
