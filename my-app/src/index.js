@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import { DataProvider } from "./context/useData";
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react';
+import { myNewTheme } from "./theme/theme";
 
 
 ReactDOM.render(
-  <ChakraProvider>
+  <DataProvider>
+    <ChakraProvider theme={myNewTheme}>
       <App />
-  </ChakraProvider>,
+    </ChakraProvider>
+  </DataProvider>
+  ,
   document.getElementById('root')
 );
 

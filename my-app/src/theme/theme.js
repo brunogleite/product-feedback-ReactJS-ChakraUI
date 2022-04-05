@@ -1,5 +1,6 @@
 
 import { extendTheme } from "@chakra-ui/react";
+import { ComponentStyleConfig } from '@chakra-ui/theme';
 
 export const myNewTheme = extendTheme({
  
@@ -7,7 +8,7 @@ export const myNewTheme = extendTheme({
       primaryColor: '#AD1FEA',
       secondaryColor: '#4661E6',
       white: '#fff',
-      darkBlue20: "#4661E6",
+      darkBlue20: "#373F68",
       darkBlue10: "#3A4374",
       greyishWhite20 : "#F2F4FF",
       greyishWhite10: "#F7F8FD",
@@ -90,9 +91,45 @@ export const myNewTheme = extendTheme({
         '8xl': '90rem',
     },
     radii:{
-        base: "0.5rem",
+        base: "0.625rem",
         large : "1.25rem",
         xl: "1.78rem",
         max: "100vw"
+    },
+    components: {
+        Button: {
+            baseStyle : {
+                fontWeight: "medium",
+                borderRadius: "10px",
+                color: "greyishWhite20"
+            },
+
+            sizes: {
+                sm: {
+                    px: "16px",
+                    py: "10.5px",
+                    fontSize: "bodyXS"
+                },
+                md:{
+                    px: "24px",
+                    py: "12.5px",
+                    fontSize: "bodyS"
+                }
+            },
+            variants : {
+                "primary" : {
+                    bg: "primaryColor"
+                },
+                "secondary" : {
+                    bg: "secondaryColor"
+                },
+                "dark" : {
+                    bg: "darkBlue20"
+                }, 
+                "delete": {
+                    bg : "#D73737"
+                }
+            }
+        }
     }
   })
