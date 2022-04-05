@@ -15,7 +15,8 @@ export default function Navbar(){
         pl="6"
         pr="4"
         alignItems="center"
-        maxW="825px">
+        maxW="825px"
+        >
             <Flex 
             alignItems="center"
             color="white">

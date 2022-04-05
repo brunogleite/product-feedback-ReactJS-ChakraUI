@@ -1,4 +1,4 @@
-import { Box, Grid } from "@chakra-ui/react"
+import { Box, Tag, Flex } from "@chakra-ui/react"
 
 export default function FilterTags(){
 
@@ -15,28 +15,32 @@ export default function FilterTags(){
         <Box
         bgColor="white"
         borderRadius="base"
-        maxW="300px"
+        maxW="255px"
         border="1px solid red"
         py="6"
         pl="6"
         pr="24"
+        position="relative"
         >
-            <Grid 
-            gridTemplateColumns="repeat(3, 1fr)" 
-            gridTemplateRows="repeat(3,1fr)" 
-            columnGap="2" 
-            rowGap="3.5" 
-            
-            >
-                {tags.map((tag) => {
-                 return <Box 
-                 py="1.5" px="4" 
-                 bgColor="greyishWhite20"
-                 borderRadius="base"
-                 w="max-content">{tag.name}
-                  </Box>
-                })}
-            </Grid>
+            <Box>
+                <Flex gap="2" w="190px" border="1px solid red" flexWrap="wrap" alignItems="center">
+                    {tags.map((tag) => {
+                    return <Tag 
+                    py="1.5" px="4" 
+                    bgColor="greyishWhite20"
+                    borderRadius="base"
+                    w="max-content"
+                    color="secondaryColor"
+                    cursor="pointer"
+                    transition="all 0.3s ease-in-out"
+                    _hover={{bgColor: "secondaryColor" , color : "white"}}
+                    >
+                    {tag.name}
+                    </Tag>
+                    })}
+                </Flex>
+            </Box>
+        
         </Box>
     )
 }
