@@ -13,23 +13,27 @@ export default function FilterTags(){
 
     return (
         <Box
-        py="6"
-        pl="6"
-        pr="12"
         bgColor="white"
         borderRadius="base"
+        maxW="300px"
+        border="1px solid red"
+        py="6"
+        pl="6"
+        pr="24"
         >
             <Grid 
             gridTemplateColumns="repeat(3, 1fr)" 
-            gridTemplateRows="repeat(auto-fill,1fr)" 
+            gridTemplateRows="repeat(3,1fr)" 
             columnGap="2" 
             rowGap="3.5" 
+            
             >
                 {tags.map((tag) => {
                  return <Box 
                  py="1.5" px="4" 
                  bgColor="greyishWhite20"
-                 borderRadius="base">{tag.name}
+                 borderRadius="base"
+                 w="max-content">{tag.name}
                   </Box>
                 })}
             </Grid>

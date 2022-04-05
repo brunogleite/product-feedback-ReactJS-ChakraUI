@@ -1,6 +1,8 @@
 import { Button } from "@chakra-ui/react";
 import Navbar from "./components/navbar";
 import FilterTags from "./components/filterTags";
+import FilterRoadmap from "./components/filterRoadmap";
+import SuggestionList from "./components/suggestionList";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       </Button>
       <FilterTags />
       <Navbar />
+      <FilterRoadmap />
+      <SuggestionList />
     </div>
   );
 }
