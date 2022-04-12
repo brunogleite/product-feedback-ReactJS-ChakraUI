@@ -2,7 +2,8 @@ import { Box } from "@chakra-ui/react";
 import { useData } from "../context/useData";
 import SuggestionItemList from "./suggestionsItemList";
 
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Outlet  } from "react-router-dom";
+import FeedbackDetail from "../pages/feedbackDetail";
 
 export default function SuggestionList(){
     const { items, setItems } = useData();
@@ -10,8 +11,12 @@ export default function SuggestionList(){
     return (
         <Box>
             {items?.map((product) => {
-                return  <Route path="new" element={<SuggestionItemList />} > <SuggestionItemList product={product} /> </Route> 
+                return <Link to={`/feedback/${product.id}`} key={product.id} > 
+                        <SuggestionItemList product={product} /> 
+                        <FeedbackDetail product={product}/>
+                    </Link>  
             })}
         </Box>
+        
     )
 }

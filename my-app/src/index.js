@@ -6,6 +6,10 @@ import { DataProvider } from "./context/useData";
 import { ChakraProvider } from '@chakra-ui/react';
 import { myNewTheme } from "./theme/theme";
 
+import FeedbackDetail from "./pages/feedbackDetail";
+import SuggestionList from "./components/suggestionList";
+import AddFeedback from "./routes/addFeedback";
+
 import {
   BrowserRouter,
   Routes,
@@ -14,13 +18,19 @@ import {
 
 
 ReactDOM.render(
-  <BrowserRouter>
-  <DataProvider>
-    <ChakraProvider theme={myNewTheme}>
-      <App />
-    </ChakraProvider>
-  </DataProvider>
-  </BrowserRouter>
+  
+    <DataProvider>
+      <ChakraProvider theme={myNewTheme}>
+        <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<App />}></Route>
+          <Route path="feedback/:feedbackId" element={<FeedbackDetail />} />
+          <Route path="addfeedback" element={<AddFeedback />} />
+        </Routes> 
+        </BrowserRouter>
+      </ChakraProvider>
+    </DataProvider>
+  
   ,
   document.getElementById('root')
 );

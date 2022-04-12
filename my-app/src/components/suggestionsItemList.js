@@ -3,6 +3,8 @@ import UpvoteSuggestion from "./upvoteSuggestion";
 import { IoChatbubbleSharp } from "react-icons/io5";
 
 export default function SuggestionItemList({product}){
+    const {upvotes, title, description, category, comments} = product;
+
     console.log(product)
 
     return(
@@ -11,28 +13,30 @@ export default function SuggestionItemList({product}){
         borderRadius="base"
         w="100%"
         maxW="825px"
-        my="5">
+        my="5"
+        transition="all 0.3s ease-in-out"
+        _hover={{boxShadow:'lg'}}>
             <Flex 
             alignItems="center"
             py="7"
             px="8">
                 <Flex alignItems="center">
                     <Box>
-                        <UpvoteSuggestion number={product.upvotes} />
+                        <UpvoteSuggestion number={upvotes} />
                     </Box>
                     <Box>
                         <Heading 
                         as="h3"
                         fontSize="headingXS"
-                        mb="1">{product.title}</Heading>
-                        <Text mb="3" color="greyColor" fontSize="bodyM">{product.description}</Text>
+                        mb="1">{title}</Heading>
+                        <Text mb="3" color="greyColor" fontSize="bodyM">{description}</Text>
                         
                         <Box 
                         py="1.5" px="4" 
                         bgColor="greyishWhite20"
                         borderRadius="base"
                         w="max-content"
-                        color="secondaryColor">{product.category}
+                        color="secondaryColor">{category}
                     </Box>
                     </Box>
                 </Flex>
@@ -40,7 +44,7 @@ export default function SuggestionItemList({product}){
                     <Box mr="2">
                         <IoChatbubbleSharp color="#CDD2EE" />
                     </Box>
-                    <Text color="darkBlue10" fontWeight="bold">{product.comments === undefined ? 0 : product.comments.length }</Text>
+                    <Text color="darkBlue10" fontWeight="bold">{comments === undefined ? 0 : comments.length }</Text>
                 </Flex>
             </Flex>
         </Box>

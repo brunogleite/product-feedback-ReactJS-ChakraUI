@@ -1,4 +1,5 @@
 import { Select, Box, Button, Flex, useBoolean, Heading, Divider  } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 import IconSuggestion from "./iconSuggestion"
@@ -80,9 +81,11 @@ export default function Navbar(){
                 </Flex>
             </Flex>
             <Box ml="auto">
-                <Button size="md" variant='primary'>
-                    Add feeedback
-                </Button>
+                <Link to="/addfeedback">
+                    <Button size="md" variant='primary'>
+                        Add feeedback
+                    </Button>
+                </Link>
             </Box>
         </Flex>
     )

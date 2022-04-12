@@ -4,8 +4,10 @@ import FilterTags from "./components/filterTags";
 import FilterRoadmap from "./components/filterRoadmap";
 import SuggestionList from "./components/suggestionList";
 import SuggestionBg from "./components/suggestionBg";
+import AddFeedback from "./routes/addFeedback"
 
-import { Routes } from "react-router-dom";
+import { Outlet, Routes, Link } from "react-router-dom";
+
 
 function App() {
   return (
