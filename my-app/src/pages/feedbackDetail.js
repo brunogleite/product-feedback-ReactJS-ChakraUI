@@ -2,15 +2,16 @@ import { Box, Container } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { useData } from "../context/useData";
 
-export default function FeedbackDetail({product}){
+import CommentsHeader from "../components/CommentsHeader";
 
-    let params = useParams();
-
-
+export default function FeedbackDetail(){
+    
 
     return(
         <Container>
-            <h1>Hello EveryOne: {params.feedbackId}</h1>
+            <CommentsHeader product={product}>
+                
+            </CommentsHeader>
         </Container>
     )
 }
