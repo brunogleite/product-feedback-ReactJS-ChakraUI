@@ -8,6 +8,12 @@ import {
 
 const dataReducer = (state, action) =>{
     switch(action.type) {
+        case "GET_DATA" : 
+        return {
+            ...state,
+            curUser: action.payload1,
+            requests: action.payload2
+        };
         case "FILTER_TAGS" : 
         return {
             ...state,

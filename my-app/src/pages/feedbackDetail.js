@@ -1,4 +1,4 @@
-import { Box, Container } from "@chakra-ui/react";
+{/*import { Box, Container } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { useData } from "../context/useData";
 
@@ -14,4 +14,4 @@ export default function FeedbackDetail(){
             </CommentsHeader>
         </Container>
     )
-}
+}*/}

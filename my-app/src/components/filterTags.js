@@ -1,6 +1,10 @@
-import { Box, Tag, Flex } from "@chakra-ui/react"
+import { Box, Tag, Flex } from "@chakra-ui/react";
+import { useContext } from "react";
+import DataContext from "../context/data/dataContext";
 
 export default function FilterTags(){
+    const dataContext = useContext(DataContext);
+    const {updateActiveTag, activeTag } = dataContext
 
     const tags = [
         {"name": "All"},
@@ -34,6 +38,7 @@ export default function FilterTags(){
                     cursor="pointer"
                     transition="all 0.3s ease-in-out"
                     _hover={{bgColor: "secondaryColor" , color : "white"}}
+                    onClick={() => updateActiveTag(tag.name)}
                     >
                     {tag.name}
                     </Tag>
