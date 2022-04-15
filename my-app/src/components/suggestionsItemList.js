@@ -1,11 +1,34 @@
 import { Box, Heading, Text, Flex } from "@chakra-ui/react";
 import UpvoteSuggestion from "./upvoteSuggestion";
 import { IoChatbubbleSharp } from "react-icons/io5";
+import DataContext from "../context/data/dataContext";
+import { useContext } from "react";
 
 export default function SuggestionItemList({product}){
-    const {upvotes, title, description, category, comments} = product;
+    const { upvotes, title, description, category, comments, id, active } = product;
 
-    console.log(product)
+    const dataContext = useContext(DataContext)
+    const { updateVote } = dataContext
+
+    //defining the component state level
+    const onUpvoteClick = (e) => {
+
+        //getting all the values from every click on each element
+        const btn = e.target.tagName === "DIV"
+        ? e.target.parentNode 
+        : e.target.tagName === "path"
+        ? e.target.parentNode.parentNode
+        : e.target.parentNode ;
+
+        let newActiveState = !active;
+       let upVoteValue = parseInt(btn.textContent)
+
+        console.log(btn)
+
+        updateVote(upVoteValue ,id, newActiveState);
+        e.stopPropagation();
+
+    }
 
     return(
         <Box 
@@ -21,7 +44,7 @@ export default function SuggestionItemList({product}){
             py="7"
             px="8">
                 <Flex alignItems="center">
-                    <Box>
+                    <Box onClick={onUpvoteClick}>
                         <UpvoteSuggestion number={upvotes} />
                     </Box>
                     <Box>

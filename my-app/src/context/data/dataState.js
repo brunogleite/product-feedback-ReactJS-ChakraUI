@@ -23,8 +23,6 @@ const DataState = (props) => {
   };
   const [state, dispatch] = useReducer(dataReducer, initialState);
 
-  console.log(state)
-
   // Get Data
   const getData = () => {
     // If session storage empty, get data from JSON file
@@ -78,7 +76,7 @@ const DataState = (props) => {
       const requestIndex = currentRequests.findIndex((index) => index.id === suggestionId );
 
     //find in currentRequests variable through requestIndex the modify the value of upvote 
-    currentRequests[requestIndex].upvotes === add ? currentValue = currentValue + 1 : currentValue = currentValue - 1
+    currentRequests[requestIndex].upvotes = add ? currentValue = currentValue + 1 : currentValue = currentValue - 1
     currentRequests[requestIndex].active = add;
 
     //store this on requests state 
@@ -88,8 +86,13 @@ const DataState = (props) => {
     dispatch({
       type: UPVOTE_ADD,
       payload: updatedRequests
-
     })
+  }
+
+  const addComments = () => {
+    // we need to define a new object 
+
+    
   }
 
 

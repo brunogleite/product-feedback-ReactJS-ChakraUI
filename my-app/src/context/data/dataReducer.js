@@ -22,7 +22,12 @@ const dataReducer = (state, action) =>{
         case "UPVOTE_ADD" : 
         return {
             ...state,
-            
+            requests: action.payload
+        }
+        case "ADD_COMMENTS" : 
+        return {
+            ...state,
+            requests: action.payload
         }
     }
 }

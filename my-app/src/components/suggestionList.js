@@ -14,13 +14,16 @@ export default function SuggestionList(){
     var lowerActiveTag = activeTag.toLowerCase();
 
     var filtered = lowerActiveTag === "all"  ? requests : requests?.filter((item) => item.category === lowerActiveTag)
+    console.log(filtered)
 
     return (
         <Box>
             {filtered?.map((product) => {
-               return <Link to={`/feedback/${product.id}`} key={product.id} > 
-                        <SuggestionItemList product={product} /> 
-                    </Link>  
+               return  <SuggestionItemList product={product} />  
+               
+               /*<Link to={`/feedback/${product.id}`} key={product.id} > 
+                       
+                    </Link>  */
             })}
         </Box>
         
