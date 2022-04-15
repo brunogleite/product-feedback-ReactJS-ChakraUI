@@ -11,6 +11,7 @@ import {
 } from '../types';
 
 const DataState = (props) => {
+
   const initialState = {
     curUser: {},
     requests: [],
@@ -21,6 +22,8 @@ const DataState = (props) => {
     commentsCount: 15,
   };
   const [state, dispatch] = useReducer(dataReducer, initialState);
+
+  console.log(state)
 
   // Get Data
   const getData = () => {
@@ -65,6 +68,30 @@ const DataState = (props) => {
     });
   };
 
+  const updateVote = (currentValue ,suggestionId, add) => {
+    //this function takes 3 params: one for the currentValue of the upvote number, id, add for styling
+
+    //we have to extract values from requests state
+      const currentRequests = state.requests;
+
+    //find the equal index on click event handler to match 
+      const requestIndex = currentRequests.findIndex((index) => index.id === suggestionId );
+
+    //find in currentRequests variable through requestIndex the modify the value of upvote 
+    currentRequests[requestIndex].upvotes === add ? currentValue = currentValue + 1 : currentValue = currentValue - 1
+    currentRequests[requestIndex].active = add;
+
+    //store this on requests state 
+    sessionStorage.setItem("requests", JSON.stringify(requestIndex))
+    const updatedRequests = sessionStorage.getItem(JSON.parse("requests"))
+    
+    dispatch({
+      type: UPVOTE_ADD,
+      payload: updatedRequests
+
+    })
+  }
+
 
   return (
     <DataContext.Provider
@@ -78,6 +105,7 @@ const DataState = (props) => {
         commentsCount: state.commentsCount,
         getData,
         updateActiveTag,
+        updateVote
       }}
     >
       {props.children}

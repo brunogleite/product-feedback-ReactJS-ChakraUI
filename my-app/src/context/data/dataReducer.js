@@ -18,6 +18,11 @@ const dataReducer = (state, action) =>{
         return {
             ...state,
             activeTag: action.payload
+        };
+        case "UPVOTE_ADD" : 
+        return {
+            ...state,
+            
         }
     }
 }

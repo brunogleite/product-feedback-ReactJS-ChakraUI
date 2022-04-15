@@ -10,11 +10,14 @@ export default function SuggestionList(){
     const dataContext = useContext(DataContext);
     const { requests, activeTag } = dataContext
 
-    
-    
+    //apply component logic with activeTag and only show that matches the activeTag
+    var lowerActiveTag = activeTag.toLowerCase();
+
+    var filtered = lowerActiveTag === "all"  ? requests : requests?.filter((item) => item.category === lowerActiveTag)
+
     return (
         <Box>
-            {requests?.map((product) => {
+            {filtered?.map((product) => {
                return <Link to={`/feedback/${product.id}`} key={product.id} > 
                         <SuggestionItemList product={product} /> 
                     </Link>  
