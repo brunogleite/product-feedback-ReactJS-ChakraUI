@@ -5,11 +5,10 @@ import RoadMapGrid from "../components/RoadMapGrid";
 export default function Roadmap(){
 
     return (
-        <Box>
-            <NavRoadmap />
-            <RoadMapGrid />
-            <Box>
-                <h1>Yes Sir</h1>
+        <Box bgColor="greyishWhite10" minH="100vh">
+            <Box maxW="1110px" margin="0 auto">
+                <NavRoadmap />
+                <RoadMapGrid />
             </Box>
         </Box>
     )

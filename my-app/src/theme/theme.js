@@ -91,6 +91,7 @@ export const myNewTheme = extendTheme({
         '8xl': '90rem',
     },
     radii:{
+        sm: "0.3125rem",
         base: "0.625rem",
         large : "1.25rem",
         xl: "1.78rem",

@@ -7,13 +7,13 @@ export default function NavRoadmap(){
         <Box bgColor="darkBlue20" borderRadius="base" px="8" py="7">
             <Flex alignItems="center">
                 <Box color="white" fontSize="headingL" >
-                    <Text> Go Back </Text>
-                    <Heading>Roadmap</Heading>
+                    <Text fontSize="bodyS" cursor="pointer"><Link to="/">Go Back</Link></Text>
+                    <Heading as="h1" fontSize="headingL">Roadmap</Heading>
                 </Box>
                 <Box ml="auto">
                     <Link to="/addfeedback">
                         <Button size="md" variant='primary'>
-                            Add feeedback
+                            Add feedback
                         </Button>
                     </Link>
                 </Box>
