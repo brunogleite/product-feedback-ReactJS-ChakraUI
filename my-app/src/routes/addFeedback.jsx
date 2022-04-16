@@ -17,13 +17,8 @@ const AddFeedback = () => {
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [detail, setDetail] = useState("");
-    const [msg, setMsg] = useState("");
 
     console.log("title Message: " + title)
-
-    function onClickMsg(msgs){
-        setMsg(msgs)
-    }
 
     /*{
         id: num,
@@ -72,7 +67,6 @@ const AddFeedback = () => {
                         <Button size="md" variant="primary" ml="4" onClick={() => addComments(title, category, detail)}> Add Feedback </Button>
                     </Box>
                 </Box>
-                {msg}
             </Box>
         </form>
         

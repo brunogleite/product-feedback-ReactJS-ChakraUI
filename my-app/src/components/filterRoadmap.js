@@ -1,4 +1,5 @@
 import { Box, Text, Heading, Flex } from "@chakra-ui/react"
+import { Link } from "react-router-dom"
 
 export default function FilterRoadmap(){
     return(
@@ -11,11 +12,12 @@ export default function FilterRoadmap(){
             p="6">
                 <Flex mb="6" alignItems="center">
                     <Heading color="darkBlue10" as="h3" fontSize="headingXS">Roadmap</Heading>
-                    <Text 
-                    fontSize="bodyXS" 
-                    as="u" 
-                    ml="auto" 
-                    cursor="pointer">View</Text>
+                        <Text 
+                        fontSize="bodyXS" 
+                        as="u" 
+                        ml="auto" 
+                        cursor="pointer"><Link to="/roadmap">View</Link>
+                        </Text>
                 </Flex>
                 <Box>
                     <Flex alignItems="center">

@@ -16,6 +16,8 @@ import {
   Route,
 } from "react-router-dom";
 
+import Roadmap from './routes/roadmap';
+
 
 ReactDOM.render(
   
@@ -26,6 +28,7 @@ ReactDOM.render(
           <Route path='/' element={<App />}></Route>
           {/*<Route path="feedback/:feedbackId" element={<FeedbackDetail />} />*/}
           <Route path="addfeedback" element={<AddFeedback />} />
+          <Route path="roadmap" element={<Roadmap />} />
         </Routes> 
         </BrowserRouter>
       </ChakraProvider>
