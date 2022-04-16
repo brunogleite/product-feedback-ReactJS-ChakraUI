@@ -89,9 +89,35 @@ const DataState = (props) => {
     })
   }
 
-  const addComments = () => {
-    // we need to define a new object 
+  const addComments = (title, category, details) => {
+    // we need to get the requests array 
+    let currentRequests = state.requests;
 
+    //we need to get the id for each new array
+    const newId = currentRequests[currentRequests.length - 1].id + 1;
+   
+    //template object to push in requests array
+    const newObj = {
+      id: newId,
+      active: false, 
+      category: category,
+      comments: [],
+      description: details,
+      status: "",
+      title: title,
+      upvotes: 0
+    }
+
+    //new Object goes to currentRequests
+    currentRequests.push(newObj)
+
+    sessionStorage.setItem("requests", JSON.stringify(currentRequests))
+    const updatedReq = JSON.parse(sessionStorage.getItem("requests"))
+
+    dispatch({
+      type: ADD_COMMENTS,
+      payload: updatedReq
+    })
     
   }
 
@@ -108,7 +134,8 @@ const DataState = (props) => {
         commentsCount: state.commentsCount,
         getData,
         updateActiveTag,
-        updateVote
+        updateVote,
+        addComments
       }}
     >
       {props.children}
