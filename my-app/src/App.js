@@ -5,6 +5,7 @@ import FilterRoadmap from "./components/filterRoadmap";
 import SuggestionList from "./components/suggestionList";
 import SuggestionBg from "./components/suggestionBg";
 import { useEffect, useContext } from "react";
+import AddComment from "./components/addComment";
 
 import DataContext from "./context/data/dataContext";
 
@@ -30,6 +31,7 @@ function App() {
         <Box w="full">
           <Navbar />
           <SuggestionList />
+          <AddComment/>
         </Box>
         </Flex>
       </Flex>
