@@ -1,17 +1,9 @@
-import React from "react";
-
 import { Box } from "@chakra-ui/react";
 
-
-
-function CommentsHeader(){
-
+export default function CommentsContainer(){
     return(
         <Box>
             
         </Box>
     )
 }
-
-
-export default CommentsHeader
