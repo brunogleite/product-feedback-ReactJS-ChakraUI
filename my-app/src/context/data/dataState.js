@@ -15,7 +15,7 @@ const DataState = (props) => {
   const initialState = {
     curUser: {},
     requests: [],
-    activeRequest: [], // => why ? 
+    activeRequest: [], // => why ? to show the details of the suggestion
     activeTag: 'All',
     sortByFilter: 'Most Upvotes',
     suggClicked: false, // => why ? 
@@ -120,6 +120,16 @@ const DataState = (props) => {
     })
     
   }
+
+  const sugProductClicked = (clickedRequest) => {
+    const newStatus = !state.suggClicked;
+    setActiveRequest(clickedRequest, false);
+
+    dispatch({
+      type: CHANGE_SUGGCLICKED,
+      payload: newStatus
+    })
+  } 
 
 /*
 // Change suggestion clicked status

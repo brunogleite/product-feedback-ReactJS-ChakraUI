@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 
 import SuggestionItemList from "./suggestionsItemList";
 
@@ -10,7 +10,11 @@ function CommentsHeader(){
     
 
     return(
-        <SuggestionItemList />
+        <>
+            {/*<SuggestionItemList />*/}
+            <Heading>Hello WOrld</Heading>
+        </>
+        
     )
 }
 

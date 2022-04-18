@@ -16,7 +16,7 @@ export default function SuggestionItemList({product}){
     console.log(id)
 
     const dataContext = useContext(DataContext)
-    const { updateVote } = dataContext
+    const { updateVote, sugProductClicked } = dataContext
 
     //defining the component state level
     const onUpvoteClick = (e) => {
@@ -38,6 +38,12 @@ export default function SuggestionItemList({product}){
 
     }
 
+    //we have to populate activeRequest through click on item of the list component
+    const clickPopulateReq = () => {
+        let clickedItem = product;
+        sugProductClicked(clickedItem)
+    }
+
     return(
         <Box 
         bgColor="white"
@@ -46,7 +52,8 @@ export default function SuggestionItemList({product}){
         maxW="825px"
         my="5"
         transition="all 0.3s ease-in-out"
-        _hover={{boxShadow:'lg'}}>
+        _hover={{boxShadow:'lg'}}
+        onClick={clickPopulateReq}>
             <Flex 
             alignItems="center"
             py="7"

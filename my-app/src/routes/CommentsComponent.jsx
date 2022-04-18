@@ -12,14 +12,13 @@ export default function CommentsComponent(){
     
 
     const dataContext = useContext(DataContext);
-    const { requests, getData } = dataContext;
-
-    //get Data in initial render
-    useEffect(() => {
-        getData();
-    }, [])
+    const { activeRequest, comments  } = dataContext;
     
-    console.log(requests)
+    console.log("Active Request: " + activeRequest)
+
+    
+
+
 
     return(
         <>
