@@ -14,17 +14,20 @@ export default function CommentsComponent(){
     const dataContext = useContext(DataContext);
     const { activeRequest, comments  } = dataContext;
     
-    console.log("Active Request: " + activeRequest)
+    console.log(activeRequest)
 
     
 
 
 
     return(
-        <>
-            <CommentsHeader />
-            <CommentsContainer />
-            <AddComment />
-        </>
+        <Box bgColor="greyishWhite10" minH="100vh">
+            <Box maxW="730px" margin="0 auto" >
+                <CommentsHeader productReq = {activeRequest} />
+                <CommentsContainer productReq = {activeRequest} />
+                <AddComment />
+            </Box>
+        </Box>
+        
     )
 }

@@ -4,3 +4,5 @@ export const FILTER_SORTBY = "FILTER_SORTBY";
 export const ADD_COMMENTS = "ADD_COMMENTS";
 export const REPLY_COMMENTS = "REPLY_COMMENTS";
 export const GET_DATA = "GET_DATA";
+export const CHANGE_SUGGCLICKED = "CHANGE_SUGGCLICKED";
+export const SET_ACTIVEREQ = "SET_ACTIVEREQ";

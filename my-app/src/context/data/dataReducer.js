@@ -34,6 +34,11 @@ const dataReducer = (state, action) =>{
             ...state,
             suggClicked: action.payload
         }
+        case "SET_ACTIVEREQ" : 
+        return {
+            ...state,
+            activeRequest: action.payload
+        }
     }
 }
 

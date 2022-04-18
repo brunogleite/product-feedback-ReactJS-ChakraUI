@@ -7,7 +7,9 @@ import {
   FILTER_TAGS,
   FILTER_SORTBY,
   ADD_COMMENTS,
-  REPLY_COMMENTS
+  REPLY_COMMENTS,
+  SET_ACTIVEREQ,
+  CHANGE_SUGGCLICKED
 } from '../types';
 
 const DataState = (props) => {
@@ -30,7 +32,7 @@ const DataState = (props) => {
       sessionStorage.getItem('requests') === null ||
       sessionStorage.getItem('curUser') === null
     ) {
-      const data = require('../../data.json');
+      const data = require('../../data.js');
 
       // Give each object a key of 'active' set to false
       for (let i = 0; i < data['productRequests'].length; i++) {
@@ -123,7 +125,7 @@ const DataState = (props) => {
 
   const sugProductClicked = (clickedRequest) => {
     const newStatus = !state.suggClicked;
-    setActiveRequest(clickedRequest, false);
+    setActiveRequest(clickedRequest, false); //=> push into a single array value the active one request 
 
     dispatch({
       type: CHANGE_SUGGCLICKED,
@@ -131,18 +133,23 @@ const DataState = (props) => {
     })
   } 
 
-/*
-// Change suggestion clicked status
-  const suggCompClicked = (clickedRequest) => {
-    const newStatus = !state.suggClicked;
-    setActiveRequest(clickedRequest, false);
+  const setActiveRequest = (clickedRequest, comment) => {
+    let newActiveRequest;
+
+    if(!comment){
+      newActiveRequest = state.suggClicked ? [] : clickedRequest
+    } else {
+      newActiveRequest = clickedRequest;
+    }
 
     dispatch({
-      type: CHANGE_SUGGCLICKED,
-      payload: newStatus,
-    });
-  };
+      type: SET_ACTIVEREQ,
+      payload: newActiveRequest
+    })
 
+  }
+
+/*
   // Set active request
   const setActiveRequest = (clickedRequest, comment) => {
     let newActiveRequest;
@@ -176,7 +183,8 @@ const DataState = (props) => {
         getData,
         updateActiveTag,
         updateVote,
-        addComments
+        addComments,
+        sugProductClicked
       }}
     >
       {props.children}
