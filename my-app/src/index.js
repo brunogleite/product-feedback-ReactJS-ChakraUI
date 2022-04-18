@@ -17,7 +17,7 @@ import {
 } from "react-router-dom";
 
 import Roadmap from './routes/roadmap';
-import AddComment from './components/addComment';
+import CommentsComponent from "./routes/CommentsComponent";
 
 
 ReactDOM.render(
@@ -30,7 +30,7 @@ ReactDOM.render(
           {/*<Route path="feedback/:feedbackId" element={<FeedbackDetail />} />*/}
           <Route path="addfeedback" element={<AddFeedback />} />
           <Route path="roadmap" element={<Roadmap />} />
-          <Route path="addcomment" element={<AddComment/>}></Route>
+          <Route path="comments/:commentsId" element={<CommentsComponent/>}></Route>
         </Routes> 
         </BrowserRouter>
       </ChakraProvider>

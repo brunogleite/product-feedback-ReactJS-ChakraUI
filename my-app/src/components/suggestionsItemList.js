@@ -4,8 +4,16 @@ import { IoChatbubbleSharp } from "react-icons/io5";
 import DataContext from "../context/data/dataContext";
 import { useContext } from "react";
 
+import { useParams } from "react-router-dom";
+
+
+
 export default function SuggestionItemList({product}){
-    const { upvotes, title, description, category, comments, id, active } = product;
+    const { upvotes, title, description, category, comments, active } = product;
+
+    let { id } = useParams();
+
+    console.log(id)
 
     const dataContext = useContext(DataContext)
     const { updateVote } = dataContext

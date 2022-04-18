@@ -19,7 +19,7 @@ export default function SuggestionList(){
     return (
         <Box>
             {filtered?.map((product) => {
-               return  <Link to={`/addcomment`} key={product.id} > 
+               return  <Link to={`/comments/${product.id}`} key={product.id} > 
                        <SuggestionItemList product={product} />
                </Link>  
                

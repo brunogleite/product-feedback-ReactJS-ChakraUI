@@ -15,10 +15,10 @@ const DataState = (props) => {
   const initialState = {
     curUser: {},
     requests: [],
-    activeRequest: [],
+    activeRequest: [], // => why ? 
     activeTag: 'All',
     sortByFilter: 'Most Upvotes',
-    suggClicked: false,
+    suggClicked: false, // => why ? 
     commentsCount: 15,
   };
   const [state, dispatch] = useReducer(dataReducer, initialState);
@@ -120,6 +120,37 @@ const DataState = (props) => {
     })
     
   }
+
+/*
+// Change suggestion clicked status
+  const suggCompClicked = (clickedRequest) => {
+    const newStatus = !state.suggClicked;
+    setActiveRequest(clickedRequest, false);
+
+    dispatch({
+      type: CHANGE_SUGGCLICKED,
+      payload: newStatus,
+    });
+  };
+
+  // Set active request
+  const setActiveRequest = (clickedRequest, comment) => {
+    let newActiveRequest;
+
+    // Declare new active request as empty array or the request that was clicked/updated by a comment
+    if (!comment) {
+      newActiveRequest = state.suggClicked ? [] : clickedRequest;
+    } else {
+      newActiveRequest = clickedRequest;
+    }
+
+    dispatch({
+      type: SET_ACTIVEREQ, => activeRequest: []
+      payload: newActiveRequest,
+    });
+  };
+
+*/
 
 
   return (

@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Box } from "@chakra-ui/react";
 
+import SuggestionItemList from "./suggestionsItemList";
 
 
 function CommentsHeader(){
 
+    
+
     return(
-        <Box>
-            
-        </Box>
+        <SuggestionItemList />
     )
 }
 
