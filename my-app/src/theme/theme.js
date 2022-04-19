@@ -22,6 +22,7 @@ export const myNewTheme = extendTheme({
         heading: "Jost, sans-serif"
     },
     fontSizes: {
+        bodyXXS: "0.875rem",
         bodyXS: "0.8125rem",
         bodyS: "0.9375rem",
         bodyM: "1rem",

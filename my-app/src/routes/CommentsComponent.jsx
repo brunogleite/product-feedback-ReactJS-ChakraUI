@@ -21,7 +21,7 @@ export default function CommentsComponent(){
 
 
     return(
-        <Box bgColor="greyishWhite10" minH="100vh">
+        <Box bgColor="greyishWhite10" minH="100vh" pt="20" pb="32">
             <Box maxW="730px" margin="0 auto" >
                 <CommentsHeader productReq = {activeRequest} />
                 <CommentsContainer productReq = {activeRequest} />

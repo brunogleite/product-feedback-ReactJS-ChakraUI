@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
-import { Box, Heading, Flex,Text } from "@chakra-ui/react";
+import { Box, Heading, Flex, Text, Button } from "@chakra-ui/react";
 import { IoChatbubbleSharp } from "react-icons/io5";
 import UpvoteSuggestion from "./upvoteSuggestion";
 
@@ -13,7 +14,16 @@ function CommentsHeader({productReq}){
     console.log(productReq)
 
     return(
-        <Box 
+        <Box>
+            <Flex alignItems="center">
+                <Text 
+                fontWeight="bold" 
+                fontSize="bodyXXS" 
+                color="greyColor" 
+                cursor="pointer"><Link to="/">Go Back</Link></Text>
+                <Button variant="primary" size="md" ml="auto">Edit Feedback</Button>
+            </Flex>
+            <Box 
         bgColor="white"
         borderRadius="base"
         w="100%"
@@ -52,7 +62,9 @@ function CommentsHeader({productReq}){
                     <Text color="darkBlue10" fontWeight="bold">{comments === undefined ? 0 : comments.length }</Text>
                 </Flex>
             </Flex>
+            </Box>
         </Box>
+        
         
     )
 }
