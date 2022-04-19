@@ -32,7 +32,7 @@ const DataState = (props) => {
       sessionStorage.getItem('requests') === null ||
       sessionStorage.getItem('curUser') === null
     ) {
-      const data = require('../../data.js');
+      const data = require('../../data.json');
 
       // Give each object a key of 'active' set to false
       for (let i = 0; i < data['productRequests'].length; i++) {

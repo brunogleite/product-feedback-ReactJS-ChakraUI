@@ -1,4 +1,4 @@
-export default {
+ {
   "currentUser": {
     "image": "./assets/user-images/image-zena.jpg",
     "name": "Zena Kelley",
@@ -121,7 +121,7 @@ export default {
           "id": 7,
           "content": "Yes I'd like to see this as well. Sometimes I want to add a short video or gif to explain the site's behavior..",
           "user": {
-            "image": require("./assets/user-images/image-roxanne.jpg"),
+            "image": "./assets/user-images/image-roxanne.jpg",
             "name": "Roxanne Travis",
             "username": "peppersprime32"
           }
@@ -140,7 +140,7 @@ export default {
           "id": 8,
           "content": "I also want to be notified when devs I follow submit projects on FEM. Is in-app notification also in the pipeline?",
           "user": {
-            "image": require("./assets/user-images/image-victoria.jpg"),
+            "image": "./assets/user-images/image-victoria.jpg",
             "name": "Victoria Mejia",
             "username": "arlen_the_marlin"
           },
@@ -187,7 +187,7 @@ export default {
           "id": 10,
           "content": "This would be awesome! It would be so helpful to see an overview of my code in a way that makes it easy to spot where things could be improved.",
           "user": {
-            "image": require("./assets/user-images/image-victoria.jpg"),
+            "image": "./assets/user-images/image-victoria.jpg",
             "name": "Victoria Mejia",
             "username": "arlen_the_marlin"
           }
@@ -280,7 +280,7 @@ export default {
           "id": 15,
           "content": "I'd love to see this! It always makes me so happy to see little details like these on websites.",
           "user": {
-            "image": require("./assets/user-images/image-victoria.jpg"),
+            "image": "./assets/user-images/image-victoria.jpg",
             "name": "Victoria Mejia",
             "username": "arlen_the_marlin"
           },
