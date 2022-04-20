@@ -7,7 +7,8 @@ import {
   FILTER_TAGS,
   FILTER_SORTBY,
   ADD_COMMENTS,
-  REPLY_COMMENTS,
+  POST_REPLY,
+  
   SET_ACTIVEREQ,
   CHANGE_SUGGCLICKED
 } from '../types';
@@ -24,6 +25,8 @@ const DataState = (props) => {
     commentsCount: 15,
   };
   const [state, dispatch] = useReducer(dataReducer, initialState);
+
+  console.log(state)
 
   // Get Data
   const getData = () => {
@@ -149,25 +152,27 @@ const DataState = (props) => {
 
   }
 
-/*
-  // Set active request
-  const setActiveRequest = (clickedRequest, comment) => {
-    let newActiveRequest;
+    
 
-    // Declare new active request as empty array or the request that was clicked/updated by a comment
-    if (!comment) {
-      newActiveRequest = state.suggClicked ? [] : clickedRequest;
-    } else {
-      newActiveRequest = clickedRequest;
+    const setNewReply = (replyObj) => {
+
+    let curUser = state.requests;
+
+    //template object to push in comments array
+    const newObj = {
+      id: "",
+      content: "",
+
     }
 
-    dispatch({
-      type: SET_ACTIVEREQ, => activeRequest: []
-      payload: newActiveRequest,
-    });
-  };
+    replyObj = newObj
 
-*/
+      dispatch({
+        type: POST_REPLY,
+        payload: replyObj
+      })
+
+    }
 
 
   return (
@@ -184,7 +189,8 @@ const DataState = (props) => {
         updateActiveTag,
         updateVote,
         addComments,
-        sugProductClicked
+        sugProductClicked,
+        setNewReply
       }}
     >
       {props.children}

@@ -3,7 +3,7 @@ import {
     FILTER_TAGS,
     FILTER_SORTBY,
     ADD_COMMENTS,
-    REPLY_COMMENTS
+    POST_REPLY
 } from "../types";
 
 const dataReducer = (state, action) =>{
@@ -35,6 +35,11 @@ const dataReducer = (state, action) =>{
             suggClicked: action.payload
         }
         case "SET_ACTIVEREQ" : 
+        return {
+            ...state,
+            activeRequest: action.payload
+        }
+        case "POST_REPLY" : 
         return {
             ...state,
             activeRequest: action.payload

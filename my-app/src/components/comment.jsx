@@ -1,15 +1,23 @@
 import { Box, Heading, Text, Flex,Image } from "@chakra-ui/react";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+import dataContext from "../context/data/dataContext";
 
 import ReplyInput from "./replyInput";
 
 export default function Comment({comment}){
 
+    //destructure dataContext
+    const DataContext = useContext(dataContext)
+    const { setNewReply } = DataContext;
+
     //component level state - reply click event handler
     const [replyClick, setReplyClick] = useState(false);
 
-    console.log(replyClick)
+    //function that handles the onClick event handler that pushs that into comment 
+    const pushReplyToComment = () => {
+        
+    }
 
     const onReplyClick = () => {
         setReplyClick(prevState => !prevState)
