@@ -154,18 +154,24 @@ const DataState = (props) => {
 
     
 
-    const setNewReply = (replyObj) => {
+    const setNewReply = () => {
 
+    /*
+      "content": "Bumping this. It would be good to have a tab with a feed of people I follow so it's easy to see what challenges they’ve done lately. I learn a lot by reading good developers' code.",
+      "replyingTo": "arlen_the_marlin",
+    
+    */
+
+    //declare
     let curUser = state.requests;
 
+    //iterar pelo comments
+
+
+    //updating
+
     //template object to push in comments array
-    const newObj = {
-      id: "",
-      content: "",
-
-    }
-
-    replyObj = newObj
+    
 
       dispatch({
         type: POST_REPLY,
