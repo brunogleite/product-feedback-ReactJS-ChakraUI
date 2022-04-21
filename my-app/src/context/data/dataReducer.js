@@ -42,7 +42,7 @@ const dataReducer = (state, action) =>{
         case "POST_REPLY" : 
         return {
             ...state,
-            activeRequest: action.payload
+            requests: action.payload
         }
     }
 }
