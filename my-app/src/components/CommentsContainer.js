@@ -5,8 +5,6 @@ import ReplyInput from "./replyInput";
 import Comment from "./comment";
 
 export default function CommentsContainer({comments}){
-    
-    console.log(comments)
 
     return(
         <Box bgColor="white" borderRadius="sm">

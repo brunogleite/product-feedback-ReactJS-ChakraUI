@@ -1,10 +1,17 @@
 import { Box, Button, Flex, Textarea } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import dataContext from "../context/data/dataContext";
 
-export default function ReplyInput(){
+export default function ReplyInput({id, userName, onReplyClick}){
+    const DataContext = useContext(dataContext);
+    const { setNewReply } = DataContext;
+
+
+    
 
     //component level state - get value from textarea
-    const [msgText, setMsgText] = useState("")
+    const [msgText, setMsgText] = useState("");
+    console.log(userName, id, msgText)
 
     //function that handles msg state
     const pushMsg = (e) => {
@@ -12,22 +19,28 @@ export default function ReplyInput(){
     }
 
     //function that's responsible onClick event handler to push the reply into comment
-    
-
-    console.log(msgText)
+    const pushReplyToComment = (e) => {
+        e.preventDefault();
+        onReplyClick();
+        setMsgText("")
+        setNewReply(id , msgText, userName ) 
+    }
 
     return (
-        <Flex my="6">
-            <Textarea placeholder="Type your comment here" 
-            borderRadius="sm"  
-            bgColor="greyishWhite10" 
-            border="none" 
-            p="4" 
-            _active={{border: "1px solid secondaryColor"}}
-            mr="4"
-            value={msgText}
-            onChange={pushMsg} />
-            <Button variant="primary" size="md">Post Reply</Button>
-        </Flex>
+        <form autoComplete="off" onSubmit={pushReplyToComment}>
+            <Flex my="6">
+                <Textarea placeholder="Type your comment here" 
+                borderRadius="sm"  
+                bgColor="greyishWhite10" 
+                border="none" 
+                p="4" 
+                _active={{border: "1px solid secondaryColor"}}
+                mr="4"
+                value={msgText}
+                onChange={pushMsg} />
+                <Button type="submit" variant="primary" size="md">Post Reply</Button>
+            </Flex>
+        </form>
+        
     )
 }

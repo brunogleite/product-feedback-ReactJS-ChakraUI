@@ -6,7 +6,7 @@ import {
   UPVOTE_ADD, 
   FILTER_TAGS,
   FILTER_SORTBY,
-  ADD_COMMENTS,
+  ADD_FEEDBACK,
   POST_REPLY,
   
   SET_ACTIVEREQ,
@@ -120,21 +120,11 @@ const DataState = (props) => {
     const updatedReq = JSON.parse(sessionStorage.getItem("requests"))
 
     dispatch({
-      type: ADD_COMMENTS,
+      type: ADD_FEEDBACK,
       payload: updatedReq
     })
     
   }
-
-  const sugProductClicked = (clickedRequest) => {
-    const newStatus = !state.suggClicked;
-    setActiveRequest(clickedRequest, false); //=> push into a single array value the active one request 
-
-    dispatch({
-      type: CHANGE_SUGGCLICKED,
-      payload: newStatus
-    })
-  } 
 
   const setActiveRequest = (clickedRequest, comment) => {
     let newActiveRequest;
@@ -152,32 +142,63 @@ const DataState = (props) => {
 
   }
 
+  const sugProductClicked = (clickedRequest) => {
+    const newStatus = !state.suggClicked;
+    setActiveRequest(clickedRequest, false); //=> push into a single array value the active one request 
+
+    dispatch({
+      type: CHANGE_SUGGCLICKED,
+      payload: newStatus
+    })
+  } 
+
+  
+    const setNewReply = (commentId, userReply, userName) => {
+
+    //declare active request
+    let commentsState = state.requests;
+    const reqIndex = commentsState.findIndex(req => req.id === state.activeRequest.id);
+    const activeReq = commentsState[reqIndex];
+      
     
+    //declare active comment
+    const curComments = activeReq.comments;
+    const comIndex = curComments.findIndex(comm => comm.id === commentId) ;
+    const activeComm = curComments[comIndex];
 
-    const setNewReply = () => {
-
-    /*
-      "content": "Bumping this. It would be good to have a tab with a feed of people I follow so it's easy to see what challenges they’ve done lately. I learn a lot by reading good developers' code.",
-      "replyingTo": "arlen_the_marlin",
+    const curReplies = activeComm.replies ? activeComm.replies : []
     
-    */
-
-    //declare
-    let curUser = state.requests;
-
-    //iterar pelo comments
-
-
-    //updating
 
     //template object to push in comments array
-    
+    const newObj = {
+      content: userReply,
+      replyingTo: userName,
+      user: state.curUser
+    };
+
+    curReplies.push(newObj);
+
+    //update the replies array with the new reply
+    activeComm.replies = curReplies;
+
+    //update the comment array
+    const newComms = curComments.map(comment =>
+       comment.id === commentId ? activeComm : comment
+    ) ;
+
+    activeReq.comments = newComms;
+
+    setActiveRequest(activeReq, true);
+
+    sessionStorage.setItem("requests", JSON.stringify(commentsState));
+    const updatedReq = JSON.parse(sessionStorage.getItem("requests"));
+
+    console.log(activeComm)
 
       dispatch({
         type: POST_REPLY,
-        payload: replyObj
+        payload: updatedReq
       })
-
     }
 
 

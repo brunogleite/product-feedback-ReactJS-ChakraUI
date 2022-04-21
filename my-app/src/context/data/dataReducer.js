@@ -24,7 +24,7 @@ const dataReducer = (state, action) =>{
             ...state,
             requests: action.payload
         }
-        case "ADD_COMMENTS" : 
+        case "ADD_FEEDBACK" : 
         return {
             ...state,
             requests: action.payload
