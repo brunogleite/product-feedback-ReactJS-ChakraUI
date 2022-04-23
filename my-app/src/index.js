@@ -18,6 +18,7 @@ import {
 
 import Roadmap from './routes/roadmap';
 import CommentsComponent from "./routes/CommentsComponent";
+import EditFeedback from './routes/editFeedback';
 
 
 ReactDOM.render(
@@ -31,6 +32,7 @@ ReactDOM.render(
           <Route path="addfeedback" element={<AddFeedback />} />
           <Route path="roadmap" element={<Roadmap />} />
           <Route path="comments/:commentsId" element={<CommentsComponent/>}></Route>
+          <Route path="comments/:commentsId/editfeedback" element={<EditFeedback/>}></Route>
         </Routes> 
         </BrowserRouter>
       </ChakraProvider>

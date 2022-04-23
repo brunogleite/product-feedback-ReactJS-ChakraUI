@@ -7,11 +7,8 @@ export default function ReplyInput({id, userName, onReplyClick}){
     const { setNewReply } = DataContext;
 
 
-    
-
     //component level state - get value from textarea
     const [msgText, setMsgText] = useState("");
-    console.log(userName, id, msgText)
 
     //function that handles msg state
     const pushMsg = (e) => {
@@ -27,9 +24,10 @@ export default function ReplyInput({id, userName, onReplyClick}){
     }
 
     return (
-        <form autoComplete="off" onSubmit={pushReplyToComment}>
+        <form autoComplete="off">
             <Flex my="6">
-                <Textarea placeholder="Type your comment here" 
+                <Textarea 
+                placeholder="Type your comment here" 
                 borderRadius="sm"  
                 bgColor="greyishWhite10" 
                 border="none" 
@@ -38,7 +36,7 @@ export default function ReplyInput({id, userName, onReplyClick}){
                 mr="4"
                 value={msgText}
                 onChange={pushMsg} />
-                <Button type="submit" variant="primary" size="md">Post Reply</Button>
+                <Button type="submit" variant="primary" size="md" onClick={pushReplyToComment}>Post Reply</Button>
             </Flex>
         </form>
         

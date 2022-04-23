@@ -50,8 +50,7 @@ export default function Comment({comment}){
             
         </Box>
         {repliesArr.map((reply, index) => {
-            console.log(reply);
-                <Reply reply={reply} id={id} key={index}/>
+                return <Reply reply={reply} id={id} key={index} userName={user.username} />
         })}
         </Box>
     )

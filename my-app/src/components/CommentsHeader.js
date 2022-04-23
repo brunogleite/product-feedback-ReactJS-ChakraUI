@@ -21,7 +21,7 @@ function CommentsHeader({productReq}){
                 fontSize="bodyXXS" 
                 color="greyColor" 
                 cursor="pointer"><Link to="/">Go Back</Link></Text>
-                <Button variant="primary" size="md" ml="auto">Edit Feedback</Button>
+                <Button variant="primary" size="md" ml="auto"><Link to={`/comments/${id}/editfeedback`}>Edit Feedback</Link></Button>
             </Flex>
             <Box 
         bgColor="white"
