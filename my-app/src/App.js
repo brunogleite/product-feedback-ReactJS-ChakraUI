@@ -22,18 +22,35 @@ function App() {
 
   return (
       <Flex minH="100vh" bgColor="greyishWhite10">
-        <Flex  py="24" pb="32" maxW="1110px" w="full" margin="0 auto">
-        <Box pr="8">
-          <SuggestionBg />
-          <FilterTags />
-          <FilterRoadmap />
+        <Box 
+        py="24" 
+        pb="32" 
+        maxW={[ "689px", "689px", "689px", "1110px"]} 
+        w="full" 
+        margin="0 auto" 
+        border="1px solid red" 
+        display={[ "block", "block", "block", "flex"]}>
+          <Box  
+          border="1px solid blue" 
+          display={[ "flex", "flex", "flex", "block"]} 
+          alignItems={["center", "center", "center", null]}
+          columnGap="10px" >
+            <Box w="33%" position="relative">
+              <SuggestionBg />
+            </Box>
+            <Box w="33%">
+              <FilterTags />
+            </Box>
+            <Box w="33%">
+              <FilterRoadmap />
+            </Box>
+          </Box>
+          <Box w="full" border="1px solid blue">
+            <Navbar />
+            <SuggestionList />
+            <AddComment/>
+          </Box>
         </Box>
-        <Box w="full">
-          <Navbar />
-          <SuggestionList />
-          <AddComment/>
-        </Box>
-        </Flex>
       </Flex>
   );
 }

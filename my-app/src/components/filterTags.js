@@ -25,6 +25,7 @@ export default function FilterTags(){
         pl="6"
         pr="24"
         position="relative"
+        minH={[ "178px", "178px", "178px", "137px" ]}
         >
             <Box>
                 <Flex gap="2" w="190px" border="1px solid red" flexWrap="wrap" alignItems="center">

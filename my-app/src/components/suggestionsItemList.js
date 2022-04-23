@@ -49,7 +49,8 @@ export default function SuggestionItemList({product}){
         bgColor="white"
         borderRadius="base"
         w="100%"
-        maxW="825px"
+        maxW={[ "full", "full", "full","825px"]}
+        
         my="5"
         transition="all 0.3s ease-in-out"
         _hover={{boxShadow:'lg'}}
