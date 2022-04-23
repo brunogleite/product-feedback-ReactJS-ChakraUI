@@ -33,15 +33,15 @@ function App() {
           <Box  
           border="1px solid blue" 
           display={[ "flex", "flex", "flex", "block"]} 
-          alignItems={["center", "center", "center", null]}
+          alignItems={[null, "center", "center", null]}
           columnGap="10px" >
-            <Box w="33%" position="relative">
+            <Box w={["full" , "33%", "33%", "full"]} position="relative">
               <SuggestionBg />
             </Box>
-            <Box w="33%">
+            <Box display={["none", "block"]} w={["33%" , "33%", "33%", "full"]}>
               <FilterTags />
             </Box>
-            <Box w="33%">
+            <Box display={["none", "block"]} w={["33%" , "33%", "33%", "full"]}>
               <FilterRoadmap />
             </Box>
           </Box>

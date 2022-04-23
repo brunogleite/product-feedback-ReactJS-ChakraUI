@@ -10,7 +10,7 @@ export default function Navbar(){
 
     return(
         <Flex 
-        borderRadius="base"
+        borderRadius={[null, null, null,"base"]}
         bgColor="darkBlue20"
         py="3.5"
         pl="6"
