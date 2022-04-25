@@ -9,15 +9,19 @@ import SuggestionItemList from "./suggestionsItemList";
 import EditFeedback from "./editFeedback";
 
 
-const CommentsHeader = ({productReq}) => {
+const CommentsHeader = ({productReq, activeReq}) => {
     const {id, title, category, active, description, upvotes, status, comments} = productReq;
-
+    const { setActiveRequest } = activeReq;
     console.log(productReq)
 
     const [ showEditModal, setShowEditModal ] = useState(false);
 
     const triggerModal = () => {
         setShowEditModal(true)
+    }
+
+    const resetActiveState = () => {
+        setActiveRequest([], false); 
     }
 
     return (
@@ -37,7 +41,7 @@ const CommentsHeader = ({productReq}) => {
                 fontWeight="bold" 
                 fontSize="bodyXXS" 
                 color="greyColor" 
-                cursor="pointer"><Link to="/">Go Back</Link></Text>
+                cursor="pointer"><Link to="/" onClick={resetActiveState}>Go Back</Link></Text>
                 <Button variant="primary" size="md" ml="auto" onClick={triggerModal}>Edit Feedback</Button>
             </Flex>
             <Box 

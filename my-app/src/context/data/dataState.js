@@ -87,6 +87,8 @@ const DataState = (props) => {
     //store this on requests state 
     sessionStorage.setItem("requests", JSON.stringify(requestIndex))
     const updatedRequests = sessionStorage.getItem(JSON.parse("requests"))
+
+    console.log(updatedRequests)
     
     dispatch({
       type: UPVOTE_ADD,
@@ -217,7 +219,8 @@ const DataState = (props) => {
         updateVote,
         addComments,
         sugProductClicked,
-        setNewReply
+        setNewReply,
+        setActiveRequest
       }}
     >
       {props.children}

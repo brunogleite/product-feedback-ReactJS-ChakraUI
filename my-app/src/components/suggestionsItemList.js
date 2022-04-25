@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Flex } from "@chakra-ui/react";
+import { Box, Heading, Text, Flex, Button } from "@chakra-ui/react";
 import UpvoteSuggestion from "./upvoteSuggestion";
 import { IoChatbubbleSharp } from "react-icons/io5";
 import DataContext from "../context/data/dataContext";
@@ -12,8 +12,6 @@ export default function SuggestionItemList({product}){
     const { upvotes, title, description, category, comments, active } = product;
 
     let { id } = useParams();
-
-    console.log(id)
 
     const dataContext = useContext(DataContext)
     const { updateVote, sugProductClicked } = dataContext
@@ -33,7 +31,7 @@ export default function SuggestionItemList({product}){
 
         console.log(btn)
 
-        updateVote(upVoteValue ,id, newActiveState);
+        updateVote(upVoteValue ,product.id, newActiveState);
         e.stopPropagation();
 
     }
@@ -41,6 +39,7 @@ export default function SuggestionItemList({product}){
     //we have to populate activeRequest through click on item of the list component
     const clickPopulateReq = () => {
         let clickedItem = product;
+        console.log(clickedItem)
         sugProductClicked(clickedItem)
     }
 
@@ -50,7 +49,6 @@ export default function SuggestionItemList({product}){
         borderRadius="base"
         w="100%"
         maxW={[ "full", "full", "full","825px"]}
-        
         my="5"
         transition="all 0.3s ease-in-out"
         _hover={{boxShadow:'lg'}}
