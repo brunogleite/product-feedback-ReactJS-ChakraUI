@@ -13,7 +13,8 @@ import DataContext from "./context/data/dataContext";
 function App() {
 
   const dataContext = useContext(DataContext);
-  const { getData } = dataContext;
+  const { getData, requests } = dataContext;
+  
 
   useEffect(() => {
     getData();
@@ -46,7 +47,7 @@ function App() {
             </Box>
           </Box>
           <Box w="full" border="1px solid blue">
-            <Navbar />
+            <Navbar req={requests} />
             <SuggestionList />
             <AddComment/>
           </Box>

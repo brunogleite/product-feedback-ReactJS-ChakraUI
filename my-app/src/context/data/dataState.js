@@ -203,6 +203,14 @@ const DataState = (props) => {
       })
     }
 
+    const updateSortList = (sortByFilter) => {
+        
+        dispatch({
+          type: FILTER_SORTBY,
+          payload: sortByFilter
+        })
+    }
+
 
   return (
     <DataContext.Provider
@@ -220,7 +228,8 @@ const DataState = (props) => {
         addComments,
         sugProductClicked,
         setNewReply,
-        setActiveRequest
+        setActiveRequest,
+        updateSortList
       }}
     >
       {props.children}

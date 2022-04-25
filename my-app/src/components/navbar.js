@@ -1,12 +1,20 @@
-import { Select, Box, Button, Flex, useBoolean, Heading, Divider  } from '@chakra-ui/react';
+import { Select, Box, Button, Flex, useBoolean, Text, Divider  } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
-import IconSuggestion from "./iconSuggestion"
+import dataContext from '../context/data/dataContext';
 
-export default function Navbar(){
+export default function Navbar({req}){
     const [isOpen, setIsOpen] = useBoolean();
-    const [textContent, setTextContent] = useState("")
+    const [textContent, setTextContent] = useState("Most Upvotes");
+
+    const DataContext = useContext(dataContext);
+    const { updateSortList } = DataContext;
+
+    const onClickSort = (e) => {
+        setTextContent(e.currentTarget.textContent)
+        updateSortList(textContent)
+    }
 
     return(
         <Flex 
@@ -22,7 +30,7 @@ export default function Navbar(){
             alignItems="center"
             color="white">
                 <Box>
-                    6 Suggestions
+                    {req.length} Suggestions
                 </Box>
                 <Flex 
                 ml="10" 
@@ -30,8 +38,8 @@ export default function Navbar(){
                 cursor="pointer"
                 position="relative"
                 alignItems="center">
-                    Sort By :
-                    <p> {textContent} </p>
+                    <Text>Sort By : </Text>
+                    <Text> {textContent} </Text>
                     {isOpen
                     ? <Box 
                         pos="absolute"
@@ -44,7 +52,7 @@ export default function Navbar(){
                         >
                         
                         <Box 
-                        onClick={(e) => setTextContent(e.currentTarget.textContent)}
+                        onClick={onClickSort}
                         _hover={{color: "primaryColor"}}
                         py="3"
                         pl="6">
@@ -52,7 +60,7 @@ export default function Navbar(){
                         </Box>
                         <Divider />
                         <Box 
-                        onClick={(e) => setTextContent(e.currentTarget.textContent)}
+                        onClick={onClickSort}
                         _hover={{color: "primaryColor"}}
                         py="3"
                         pl="6">
@@ -60,7 +68,7 @@ export default function Navbar(){
                         </Box>
                         <Divider />
                         <Box 
-                        onClick={(e) => setTextContent(e.currentTarget.textContent)}
+                        onClick={onClickSort}
                         _hover={{color: "primaryColor"}}
                         py="3"
                         pl="6">
@@ -68,7 +76,7 @@ export default function Navbar(){
                         </Box>
                         <Divider />
                         <Box 
-                        onClick={(e) => setTextContent(e.currentTarget.textContent)}
+                        onClick={onClickSort}
                         _hover={{color: "primaryColor"}}
                         py="3"
                         pl="6">
