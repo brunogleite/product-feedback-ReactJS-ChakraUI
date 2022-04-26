@@ -10,8 +10,10 @@ import {
   POST_REPLY,
   ADD_COMMENT,
   SET_ACTIVEREQ,
-  CHANGE_SUGGCLICKED
+  CHANGE_SUGGCLICKED,
+  EDIT_FEEDBACK
 } from '../types';
+import { VisibilityAction } from 'framer-motion';
 
 const DataState = (props) => {
 
@@ -35,7 +37,7 @@ const DataState = (props) => {
       sessionStorage.getItem('requests') === null ||
       sessionStorage.getItem('curUser') === null
     ) {
-      const data = require('../../data.json');
+      const data = require('../../data.js');
 
       // Give each object a key of 'active' set to false
       for (let i = 0; i < data['productRequests'].length; i++) {
@@ -246,6 +248,38 @@ const DataState = (props) => {
 
     }
 
+    const editFeedback = (
+      reqId,
+      newReqTitle,
+      newReqCategory,
+      newReqStatus,
+      newReqDescription
+    ) => {
+      let curReq = state.requests;
+      let reqIndex;
+
+      //loop through requests parameters and target one of them
+      for(var i = 0 ; i < curReq.length ; i++) {
+        if(curReq[i].id === reqId) {
+          curReq[i].title = newReqTitle
+          curReq[i].category = newReqCategory
+          curReq[i].status = newReqStatus
+          curReq[i].description = newReqDescription
+          reqIndex = i
+        }
+      }
+
+      setActiveRequest(curReq[reqIndex], true)
+
+      sessionStorage.setItem('requests', JSON.stringify(curReq));
+      const updatedRequests = JSON.parse(sessionStorage.getItem('requests'));
+
+      dispatch({
+        type: "EDIT_FEEDBACK",
+        payload : updatedRequests
+      })
+    }
+
 
   return (
     <DataContext.Provider
@@ -265,7 +299,8 @@ const DataState = (props) => {
         setNewReply,
         setActiveRequest,
         updateSortList,
-        addComment
+        addComment,
+        editFeedback
       }}
     >
       {props.children}

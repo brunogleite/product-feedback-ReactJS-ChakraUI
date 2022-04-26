@@ -22,7 +22,7 @@ export default function AddComment(){
             <Box  p="8">
                 <Heading fontSize="headingXS" color="darkBlue10" fontWeight="medium">Add Comment</Heading>
                 {valueLeft < 0 ? 
-                 <Textarea disabled></Textarea> : <Textarea 
+                 <Textarea isInvalid></Textarea> : <Textarea 
                  placeholder="Type your comment here" 
                  borderRadius="sm" 
                  my="6" 

@@ -28,7 +28,7 @@ export default function Comment({comment}){
             <Box>
                 <Flex alignItems="center" mb="4">
                     <Flex  alignItems="center">
-                        <Image />
+                        <Image src={user.image} alt="image profile" />
                         <Box>
                             <Heading color="darkBlue10" fontSize="headingXS" as="h3">{user.name}</Heading>
                             <Text color="greyColor">@{user.username}</Text>
@@ -50,6 +50,7 @@ export default function Comment({comment}){
             
         </Box>
         {repliesArr.map((reply, index) => {
+            
                 return <Reply reply={reply} id={id} key={index} userName={user.username} />
         })}
         </Box>

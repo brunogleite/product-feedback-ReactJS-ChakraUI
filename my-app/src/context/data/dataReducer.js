@@ -54,6 +54,13 @@ const dataReducer = (state, action) =>{
             ...state,
             requests: action.payload
         }
+        case "EDIT_FEEDBACK" : 
+        return {
+            ...state,
+            requests: action.payload
+        }
+        default:
+        return state;
     }
 }
 

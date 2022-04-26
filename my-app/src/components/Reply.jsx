@@ -5,7 +5,7 @@ import dataContext from "../context/data/dataContext";
 import ReplyInput from "./replyInput";
 
 export default function Reply({reply, id, userName}){
-    console.log(reply)
+    console.log(reply.user.image)
 
     const [openInput, setOpenInput] = useState(false)
 
@@ -19,7 +19,7 @@ export default function Reply({reply, id, userName}){
                 <Box border="1px solid red">
                     <Flex alignItems="center" mb="4">
                         <Flex  alignItems="center">
-                            <Image />
+                            <Image src={reply.user.image} />
                                 <Box>
                                     <Heading color="darkBlue10" fontSize="headingXS" as="h3">{reply.user.name}</Heading>
                                     <Text color="greyColor">@{reply.replyingTo}</Text>

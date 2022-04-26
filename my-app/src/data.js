@@ -1,6 +1,6 @@
- {
+ export default {
   "currentUser": {
-    "image": "./assets/user-images/image-zena.jpg",
+    "image": "./public/assets/user-images/image-zena.jpg",
     "name": "Zena Kelley",
     "username": "velvetround"
   },
@@ -26,7 +26,7 @@
           "id": 2,
           "content": "Please use fun, color-coded labels to easily identify them at a glance",
           "user": {
-            "image": "./assets/user-images/image-thomas.jpg",
+            "image": "user-images/image-thomas.jpg",
             "name": "Thomas Hood",
             "username": "brawnybrave"
           }

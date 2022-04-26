@@ -1,10 +1,24 @@
 import { Box, Button, Heading, Text, Textarea, Select, Flex, useToast  } from "@chakra-ui/react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import dataContext from "../context/data/dataContext";
    
 
 export default function EditFeedback({title, description, id, status, category}){
+    const DataContext = useContext(dataContext);
+    const { editFeedback } = DataContext;
 
+    //component level state
+    const [newFeedbackTitle, setNewFeedbackTitle] = useState(title)
+    const [newFeedbackCategory, setNewFeedbackCategory] = useState(category)
+    const [newFeedbackStatus, setNewFeedbackStatus] = useState(status)
+    const [newFeedbackDescription, setNewFeedbackDescription] = useState(description)
     console.log(category)
+
+    //function that handles click
+
+
+
     //declare component level function
     const popUp = useToast();
 
