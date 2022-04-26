@@ -2,7 +2,7 @@ import {
     UPVOTE_ADD, 
     FILTER_TAGS,
     FILTER_SORTBY,
-    ADD_COMMENTS,
+    ADD_COMMENT,
     POST_REPLY
 } from "../types";
 
@@ -48,6 +48,11 @@ const dataReducer = (state, action) =>{
         return {
             ...state,
             sortByFilter: action.payload
+        }
+        case "ADD_COMMENT" : 
+        return {
+            ...state,
+            requests: action.payload
         }
     }
 }

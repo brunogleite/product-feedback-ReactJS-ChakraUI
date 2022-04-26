@@ -6,3 +6,4 @@ export const GET_DATA = "GET_DATA";
 export const CHANGE_SUGGCLICKED = "CHANGE_SUGGCLICKED";
 export const SET_ACTIVEREQ = "SET_ACTIVEREQ";
 export const POST_REPLY = "POST_REPLY";
+export const ADD_COMMENT = "ADD_COMMENT";

@@ -8,7 +8,7 @@ import {
   FILTER_SORTBY,
   ADD_FEEDBACK,
   POST_REPLY,
-  
+  ADD_COMMENT,
   SET_ACTIVEREQ,
   CHANGE_SUGGCLICKED
 } from '../types';
@@ -213,6 +213,39 @@ const DataState = (props) => {
         })
     }
 
+    const addComment = (userComment) => {
+      //find the active Request
+      let curRequests = state.requests;
+      let reqindex = curRequests.findIndex(req => req.id === state.activeRequest.id) ;
+
+      let activeReq = curRequests[reqindex];
+
+      let curComments = activeReq.comments ? activeReq.comments : [];
+
+      //template of new comment
+      const newComm = {
+        id: state.commentsCount + 1,
+        content : userComment,
+        user : state.curUser
+      }
+
+      curComments.push(newComm);
+
+      //updating the requests array
+      activeReq.comments = curComments;
+
+      setActiveRequest(activeReq, true);
+
+      sessionStorage.setItem("requests", JSON.stringify(curRequests) )
+      const updatedReq = JSON.parse(sessionStorage.getItem("requests"))
+
+      dispatch({
+        type : ADD_COMMENT,
+        payload : updatedReq
+      })
+
+    }
+
 
   return (
     <DataContext.Provider
@@ -231,7 +264,8 @@ const DataState = (props) => {
         sugProductClicked,
         setNewReply,
         setActiveRequest,
-        updateSortList
+        updateSortList,
+        addComment
       }}
     >
       {props.children}
