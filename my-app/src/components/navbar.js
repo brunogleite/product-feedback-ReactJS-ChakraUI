@@ -6,15 +6,18 @@ import dataContext from '../context/data/dataContext';
 
 export default function Navbar({req}){
     const [isOpen, setIsOpen] = useBoolean();
-    const [textContent, setTextContent] = useState("Most Upvotes");
 
     const DataContext = useContext(dataContext);
-    const { updateSortList } = DataContext;
+    const { updateSortList, sortByFilter } = DataContext;
+
 
     const onClickSort = (e) => {
-        setTextContent(e.currentTarget.textContent)
-        updateSortList(textContent)
-    }
+        let newCurDisplay = e.target.value
+        ? e.target.value
+        : e.target.parentNode.value;
+    
+        updateSortList(newCurDisplay);
+      };
 
     return(
         <Flex 
@@ -39,7 +42,7 @@ export default function Navbar({req}){
                 position="relative"
                 alignItems="center">
                     <Text>Sort By : </Text>
-                    <Text> {textContent} </Text>
+                    <Text> {sortByFilter} </Text>
                     {isOpen
                     ? <Box 
                         pos="absolute"
@@ -51,37 +54,41 @@ export default function Navbar({req}){
                         w="255px"
                         >
                         
-                        <Box 
+                        <Button 
                         onClick={onClickSort}
                         _hover={{color: "primaryColor"}}
                         py="3"
-                        pl="6">
+                        pl="6"
+                        value="Most Upvotes">
                             <p>Most Upvotes</p>
-                        </Box>
+                        </Button>
                         <Divider />
-                        <Box 
+                        <Button 
                         onClick={onClickSort}
                         _hover={{color: "primaryColor"}}
                         py="3"
-                        pl="6">
+                        pl="6"
+                        value="Least Upvotes">
                             <p>Least Upvotes</p>
-                        </Box>
+                        </Button>
                         <Divider />
-                        <Box 
+                        <Button 
                         onClick={onClickSort}
                         _hover={{color: "primaryColor"}}
                         py="3"
-                        pl="6">
+                        pl="6"
+                        value="Most Comments">
                         <p>Most Comments</p>
-                        </Box>
+                        </Button>
                         <Divider />
-                        <Box 
+                        <Button 
                         onClick={onClickSort}
                         _hover={{color: "primaryColor"}}
                         py="3"
-                        pl="6">
+                        pl="6"
+                        value="Least Comments">
                         <p>Least Comments</p>
-                        </Box>
+                        </Button>
 
                     </Box>
                     : ""

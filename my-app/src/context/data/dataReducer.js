@@ -47,7 +47,7 @@ const dataReducer = (state, action) =>{
         case "FILTER_SORTBY" : 
         return {
             ...state,
-            requests: action.payload
+            sortByFilter: action.payload
         }
     }
 }

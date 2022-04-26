@@ -204,10 +204,12 @@ const DataState = (props) => {
     }
 
     const updateSortList = (sortByFilter) => {
+
+        let newSortBy = sortByFilter;
         
         dispatch({
           type: FILTER_SORTBY,
-          payload: sortByFilter
+          payload: newSortBy
         })
     }
 
