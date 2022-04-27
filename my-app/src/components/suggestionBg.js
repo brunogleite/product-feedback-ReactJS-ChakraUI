@@ -37,7 +37,7 @@ export default function SuggestionBg() {
                         <Heading color="white" fontSize="headingSM" as="h2">Frontend Mentor</Heading>
                         <Text fontSize="bodyS" color="white" opacity="0.75">Feedback Board</Text>
                     </Box>
-                    <Box ml="auto" onClick={onOpen}>
+                    <Box ml="auto" onClick={onOpen} display={["block", "none", "none", "none"]}>
                         <Icon as={IoMenu} color="white" boxSize="6" />
                     </Box>
                 </Flex>

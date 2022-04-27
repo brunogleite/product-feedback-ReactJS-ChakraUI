@@ -49,7 +49,6 @@ function App() {
           <Box w="full" border="1px solid blue">
             <Navbar req={requests} />
             <SuggestionList />
-            <AddComment/>
           </Box>
         </Box>
       </Flex>

@@ -32,11 +32,11 @@ export default function Navbar({req}){
             <Flex 
             alignItems="center"
             color="white">
-                <Box>
+                <Box display={["none" , "none" , "block", "block"]}>
                     {req.length} Suggestions
                 </Box>
                 <Flex 
-                ml="10" 
+                ml={[null, null, "10"]} 
                 onClick={setIsOpen.toggle} 
                 cursor="pointer"
                 position="relative"

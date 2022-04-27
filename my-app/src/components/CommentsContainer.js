@@ -6,14 +6,12 @@ import Comment from "./comment";
 
 export default function CommentsContainer({comments}){
 
-    useEffect(() => {
-        console.log(comments)
-    }, [comments])
+    console.log(comments)
 
     return(
         <Box bgColor="white" borderRadius="sm">
-            <Heading as="h3" fontSize="headingXS">4 Comments</Heading>
-            {comments.map((comment, index) => {
+            <Heading as="h3" fontSize="headingXS">{comments === undefined ? "": comments.length} Comments</Heading>
+            {comments === undefined ? "" : comments.map((comment, index) => {
                 return <Comment key={index} comment={comment} />
             })}
         </Box>

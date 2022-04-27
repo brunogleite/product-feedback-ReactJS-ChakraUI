@@ -15,11 +15,6 @@ export default function CommentsComponent(){
     const { activeRequest , setActiveRequest } = dataContext;
     const { comments } = activeRequest;
 
-    console.log(setActiveRequest)
-
-    
-
-
 
     return(
         <Box bgColor="greyishWhite10" minH="100vh" pt="20" pb="32">

@@ -11,8 +11,6 @@ import { useParams } from "react-router-dom";
 export default function SuggestionItemList({product}){
     const { upvotes, title, description, category, comments, active } = product;
 
-    let { id } = useParams();
-
     const dataContext = useContext(DataContext)
     const { updateVote, sugProductClicked } = dataContext
 
@@ -52,11 +50,12 @@ export default function SuggestionItemList({product}){
         my="5"
         transition="all 0.3s ease-in-out"
         _hover={{boxShadow:'lg'}}
-        onClick={clickPopulateReq}>
+        onClick={clickPopulateReq}
+        border="1px solid red">
             <Flex 
             alignItems="center"
-            py="7"
-            px="8">
+            py={[ "6" , "6" , "7", "7"]}
+            px={[ "6" , "6" , "8", "8"]}>
                 <Flex alignItems="center">
                     <Box onClick={onUpvoteClick}>
                         <UpvoteSuggestion number={upvotes} />
@@ -64,16 +63,17 @@ export default function SuggestionItemList({product}){
                     <Box>
                         <Heading 
                         as="h3"
-                        fontSize="headingXS"
+                        fontSize={[ "bodyXS", "bodyXS", "headingXS", "headingXS"]}
                         mb="1">{title}</Heading>
-                        <Text mb="3" color="greyColor" fontSize="bodyM">{description}</Text>
+                        <Text mb="3" color="greyColor" fontSize={["bodyXS", "bodyXS", "bodyM", "bodyM"]}>{description}</Text>
                         
                         <Box 
                         py="1.5" px="4" 
                         bgColor="greyishWhite20"
                         borderRadius="base"
                         w="max-content"
-                        color="secondaryColor">{category}
+                        color="secondaryColor"
+                        fontSize={["bodyXS", "bodyXS", null, null]}>{category}
                     </Box>
                     </Box>
                 </Flex>
@@ -81,7 +81,7 @@ export default function SuggestionItemList({product}){
                     <Box mr="2">
                         <IoChatbubbleSharp color="#CDD2EE" />
                     </Box>
-                    <Text color="darkBlue10" fontWeight="bold">{comments === undefined ? 0 : comments.length }</Text>
+                    <Text color="darkBlue10" fontWeight="bold" fontSize={["bodyXS", "bodyXS", null, null]}>{comments === undefined ? 0 : comments.length }</Text>
                 </Flex>
             </Flex>
         </Box>

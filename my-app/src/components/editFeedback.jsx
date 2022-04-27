@@ -13,11 +13,31 @@ export default function EditFeedback({title, description, id, status, category})
     const [newFeedbackCategory, setNewFeedbackCategory] = useState(category)
     const [newFeedbackStatus, setNewFeedbackStatus] = useState(status)
     const [newFeedbackDescription, setNewFeedbackDescription] = useState(description)
-    console.log(category)
-
-    //function that handles click
 
 
+    //function that handles change on title
+    const changeTitle = (e) => {
+        setNewFeedbackTitle(e.target.value.substring(0,150))
+    }
+
+    //function that handles change on description
+    const changeDescription = (e) => {
+        setNewFeedbackDescription(e.target.value.substring(0,150))
+    }
+
+    //function that handles on click event
+    const changeCategory = (e) => {
+        setNewFeedbackCategory(e.target.value)
+    }
+
+    //function that handles on click event
+    const changeStatus = (e) => {
+        setNewFeedbackStatus(e.target.value)
+    }
+
+    const editFeedbackToNew = () => {
+        editFeedback(id, newFeedbackTitle, newFeedbackCategory, newFeedbackStatus, newFeedbackDescription)
+    }
 
     //declare component level function
     const popUp = useToast();
@@ -52,14 +72,15 @@ export default function EditFeedback({title, description, id, status, category})
                         p="4" 
                         _active={{border: "1px solid secondaryColor"}}
                         mr="4"
-                        value={title} />
+                        value={newFeedbackTitle}
+                        onChange={changeTitle} />
                     </Box>
                     <Box pt="6">
                         <Text fontSize="bodyXXS" color="darkBlue10" fontWeight="bold">Category</Text>
                         <Text fontSize="bodyXXS" color="greyColor" pt="0.5" pb="4">Choose a category for your feedback</Text>
-                        <Select placeholder={category}>
-                            <option value='ui'>UI</option>
-                            <option value='ux'>UX</option>
+                        <Select onClick={changeCategory}>
+                            <option value='ui' >UI</option>
+                            <option value='ux'> UX</option>
                             <option value='enhancement'>Enhancement</option>
                             <option value='bug'>Bug</option>
                             <option value='feature'>Feature</option>
@@ -68,7 +89,7 @@ export default function EditFeedback({title, description, id, status, category})
                     <Box py="6">
                         <Text fontSize="bodyXXS" color="darkBlue10" fontWeight="bold">Update Status</Text>
                         <Text fontSize="bodyXXS" color="greyColor" pt="0.5" pb="4">Change feedback state</Text>
-                        <Select placeholder={status}>
+                        <Select onClick={changeStatus}>
                             <option value='planned'>Planned</option>
                             <option value='in-progress'>In-Progress</option>
                             <option value='live'>Live</option>
@@ -84,7 +105,8 @@ export default function EditFeedback({title, description, id, status, category})
                         p="4" 
                         _active={{border: "1px solid secondaryColor"}}
                         mr="4"
-                        value={description} />
+                        value={newFeedbackDescription}
+                        onChange={changeDescription} />
                     </Box>
                 </Box>
                 <Flex alignItems="center">
@@ -93,7 +115,7 @@ export default function EditFeedback({title, description, id, status, category})
                     </Box>
                     <Box ml="auto">
                         <Link to="/comments/2"><Button variant="dark" size="md" mr="4" onClick={cancelFeedback}>Cancel</Button></Link>
-                        <Button variant="primary" size="md">Add Feedback</Button>
+                        <Button variant="primary" size="md" onClick={editFeedbackToNew}>Add Feedback</Button>
                     </Box>
                 </Flex>
             </Box>

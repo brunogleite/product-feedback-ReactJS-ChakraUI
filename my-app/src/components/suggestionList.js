@@ -44,7 +44,7 @@ export default function SuggestionList(){
       }
 
     return (
-        <Box>
+        <Box p={["6", "6", null, null]} >
             {filtered?.map((product) => {
                return  <Link to={`/comments/${product.id}`} key={product.id} > 
                             <SuggestionItemList product={product} />
