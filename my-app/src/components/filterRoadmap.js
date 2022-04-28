@@ -7,7 +7,6 @@ export default function FilterRoadmap(){
         bgColor="white"
         borderRadius="base"
         maxW="255px"
-        border="1px solid red"
         minH={[ "178px", "178px", "178px", "137px" ]}>
             <Box
             p="6">

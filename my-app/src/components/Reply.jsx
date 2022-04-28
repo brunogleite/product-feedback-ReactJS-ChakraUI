@@ -16,7 +16,7 @@ export default function Reply({reply, id, userName}){
     return (
         <Box px="8" pb="12">
             <Box pl="6">
-                <Box border="1px solid red">
+                <Box>
                     <Flex alignItems="center" mb="4">
                         <Flex  alignItems="center">
                             <Image src={reply.user.image} />

@@ -50,8 +50,7 @@ export default function SuggestionItemList({product}){
         my="5"
         transition="all 0.3s ease-in-out"
         _hover={{boxShadow:'lg'}}
-        onClick={clickPopulateReq}
-        border="1px solid red">
+        onClick={clickPopulateReq}>
             <Flex 
             alignItems="center"
             py={[ "6" , "6" , "7", "7"]}

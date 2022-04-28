@@ -29,10 +29,8 @@ function App() {
         maxW={[ "689px", "689px", "689px", "1110px"]} 
         w="full" 
         margin="0 auto" 
-        border="1px solid red" 
         display={[ "block", "block", "block", "flex"]}>
           <Box  
-          border="1px solid blue" 
           display={[ "flex", "flex", "flex", "block"]} 
           alignItems={[null, "center", "center", null]}
           columnGap="10px" >
@@ -46,7 +44,7 @@ function App() {
               <FilterRoadmap />
             </Box>
           </Box>
-          <Box w="full" border="1px solid blue">
+          <Box w="full">
             <Navbar req={requests} />
             <SuggestionList />
           </Box>

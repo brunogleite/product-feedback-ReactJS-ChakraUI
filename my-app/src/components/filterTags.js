@@ -20,7 +20,6 @@ export default function FilterTags({onClose}){
         bgColor="white"
         borderRadius="base"
         maxW="255px"
-        border="1px solid red"
         py="6"
         pl="6"
         pr="24"
@@ -28,7 +27,7 @@ export default function FilterTags({onClose}){
         minH={[ "178px", "178px", "178px", "137px" ]}
         >
             <Box>
-                <Flex gap="2" w="190px" border="1px solid red" flexWrap="wrap" alignItems="center">
+                <Flex gap="2" w="190px" flexWrap="wrap" alignItems="center">
                     {tags.map((tag) => {
                     return <Tag 
                     py="1.5" px="4" 
