@@ -1,10 +1,10 @@
-import { Button, Box, Flex } from "@chakra-ui/react";
+import { Button, Box, Flex, Skeleton } from "@chakra-ui/react";
 import Navbar from "./components/navbar";
 import FilterTags from "./components/filterTags";
 import FilterRoadmap from "./components/filterRoadmap";
 import SuggestionList from "./components/suggestionList";
 import SuggestionBg from "./components/suggestionBg";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import AddComment from "./components/addComment";
 
 import DataContext from "./context/data/dataContext";
@@ -13,11 +13,16 @@ import DataContext from "./context/data/dataContext";
 function App() {
 
   const dataContext = useContext(DataContext);
+  const [isLoading, setIsLoading ] = useState(false);
   const { getData, requests } = dataContext;
   
 
   useEffect(() => {
+    setIsLoading(true);
+
     getData();
+
+    setIsLoading(false)
 
   }, []);
 
@@ -34,19 +39,28 @@ function App() {
           display={[ "flex", "flex", "flex", "block"]} 
           alignItems={[null, "center", "center", null]}
           columnGap="10px" >
-            <Box w={["full" , "33%", "33%", "full"]} position="relative">
-              <SuggestionBg />
-            </Box>
-            <Box display={["none", "block"]} w={["33%" , "33%", "33%", "full"]}>
-              <FilterTags />
-            </Box>
-            <Box display={["none", "block"]} w={["33%" , "33%", "33%", "full"]}>
-              <FilterRoadmap />
-            </Box>
+            <Skeleton isLoaded>
+              <Box w={["full" , "33%", "33%", "full"]} position="relative">
+                <SuggestionBg />
+              </Box>
+            </Skeleton>
+            <Skeleton isLoaded>
+              <Box display={["none", "block"]} w={["33%" , "33%", "33%", "full"]}>
+                <FilterTags />
+              </Box>
+            </Skeleton>
+            
+            <Skeleton isLoaded>
+              <Box display={["none", "block"]} w={["33%" , "33%", "33%", "full"]}>
+                <FilterRoadmap />
+              </Box>
+            </Skeleton>
           </Box>
           <Box w="full">
-            <Navbar req={requests} />
-            <SuggestionList />
+            <Skeleton isLoaded>
+              <Navbar req={requests} />
+            </Skeleton>
+            <SuggestionList isLoading={isLoading} />
           </Box>
         </Box>
       </Flex>

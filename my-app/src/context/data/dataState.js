@@ -13,7 +13,7 @@ import {
   CHANGE_SUGGCLICKED,
   EDIT_FEEDBACK
 } from '../types';
-import { VisibilityAction } from 'framer-motion';
+
 
 const DataState = (props) => {
 

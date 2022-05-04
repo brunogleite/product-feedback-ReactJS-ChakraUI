@@ -1,11 +1,11 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Skeleton } from "@chakra-ui/react";
 import DataContext from '../context/data/dataContext';
 import SuggestionItemList from "./suggestionsItemList";
 
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 
-export default function SuggestionList(){
+export default function SuggestionList({isLoading}){
     const dataContext = useContext(DataContext);
     const { requests, activeTag, sortByFilter } = dataContext;
 
@@ -45,11 +45,12 @@ export default function SuggestionList(){
     return (
         <Box p={["6", "6", null, null]} >
             {filtered?.map((product) => {
-               return  <Link to={`/comments/${product.id}`} key={product.id} > 
-                            <SuggestionItemList product={product} />
-                       </Link>  
+              return <Skeleton isLoaded>
+                        <Link to={`/comments/${product.id}`} key={product.id} > 
+                          <SuggestionItemList product={product} />
+                       </Link>
+                    </Skeleton>
             })}
         </Box>
-        
     )
 }
