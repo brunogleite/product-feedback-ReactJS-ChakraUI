@@ -18,7 +18,7 @@ export default function AddComment(){
 
 
     return(
-        <Box borderRadius="base" bgColor="white" >
+        <Box borderRadius="base" bgColor="white" mt="6" >
             <Box  p="8">
                 <Heading fontSize="headingXS" color="darkBlue10" fontWeight="medium">Add Comment</Heading>
                 {valueLeft < 0 ? 

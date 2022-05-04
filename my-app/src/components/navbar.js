@@ -49,44 +49,55 @@ export default function Navbar({req}){
                         top="10"
                         left="0"
                         bgColor="white"
-                        color="greyColor"
                         borderRadius="base"
                         w="255px"
                         >
                         
                         <Button 
                         onClick={onClickSort}
+                        color="greyColor"
+                        bgColor="white"
                         _hover={{color: "primaryColor"}}
                         py="3"
                         pl="6"
-                        value="Most Upvotes">
+                        value="Most Upvotes"
+                        w="full">
                             <p>Most Upvotes</p>
                         </Button>
                         <Divider />
                         <Button 
                         onClick={onClickSort}
+                        bgColor="white"
                         _hover={{color: "primaryColor"}}
+                        color="greyColor"
                         py="3"
                         pl="6"
-                        value="Least Upvotes">
+                        value="Least Upvotes"
+                        w="full">
                             <p>Least Upvotes</p>
                         </Button>
                         <Divider />
                         <Button 
                         onClick={onClickSort}
+                        bgColor="white"
+                        color="greyColor"
                         _hover={{color: "primaryColor"}}
                         py="3"
                         pl="6"
-                        value="Most Comments">
+                        value="Most Comments"
+                        w="full">
                         <p>Most Comments</p>
                         </Button>
                         <Divider />
                         <Button 
                         onClick={onClickSort}
+                        bgColor="white"
+                        color="greyColor"
                         _hover={{color: "primaryColor"}}
                         py="3"
                         pl="6"
-                        value="Least Comments">
+                        value="Least Comments"
+                        w="full">
                         <p>Least Comments</p>
                         </Button>
 

@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Textarea } from "@chakra-ui/react";
+import { Button, Flex, Textarea, FormControl } from "@chakra-ui/react";
 import { useState, useContext } from "react";
 import dataContext from "../context/data/dataContext";
 
@@ -24,7 +24,7 @@ export default function ReplyInput({id, userName, onReplyClick}){
     }
 
     return (
-        <form autoComplete="off">
+        <FormControl maxW="600px" ml="auto">
             <Flex my="6">
                 <Textarea 
                 placeholder="Type your comment here" 
@@ -38,7 +38,7 @@ export default function ReplyInput({id, userName, onReplyClick}){
                 onChange={pushMsg} />
                 <Button type="submit" variant="primary" size="md" onClick={pushReplyToComment}>Post Reply</Button>
             </Flex>
-        </form>
+        </FormControl>
         
     )
 }

@@ -83,18 +83,19 @@ const DataState = (props) => {
       const requestIndex = currentRequests.findIndex((index) => index.id === suggestionId );
 
     //find in currentRequests variable through requestIndex the modify the value of upvote 
-    currentRequests[requestIndex].upvotes = add ? currentValue = currentValue + 1 : currentValue = currentValue - 1
+    currentRequests[requestIndex].upvotes = add ? currentValue = currentValue + 1 :  currentValue - 1
     currentRequests[requestIndex].active = add;
 
     //store this on requests state 
-    sessionStorage.setItem("requests", JSON.stringify(requestIndex))
-    const updatedRequests = sessionStorage.getItem(JSON.parse("requests"))
+    sessionStorage.setItem("requests", JSON.stringify(currentRequests))
+    const updatedRequests = JSON.parse(sessionStorage.getItem(("requests")))
     
     dispatch({
       type: UPVOTE_ADD,
       payload: updatedRequests
     })
   }
+
 
   const addComments = (title, category, details) => {
     // we need to get the requests array 

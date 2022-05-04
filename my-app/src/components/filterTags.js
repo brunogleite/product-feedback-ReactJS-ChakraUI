@@ -4,7 +4,9 @@ import DataContext from "../context/data/dataContext";
 
 export default function FilterTags({onClose}){
     const dataContext = useContext(DataContext);
-    const {updateActiveTag, activeTag } = dataContext
+    const {updateActiveTag, activeTag } = dataContext;
+
+    console.log(activeTag)
 
     const tags = [
         {"name": "All"},
@@ -30,6 +32,7 @@ export default function FilterTags({onClose}){
                 <Flex gap="2" w="190px" flexWrap="wrap" alignItems="center">
                     {tags.map((tag) => {
                     return <Tag 
+                    key={tag.name}
                     py="1.5" px="4" 
                     bgColor="greyishWhite20"
                     borderRadius="base"

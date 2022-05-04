@@ -4,13 +4,9 @@ import { IoChatbubbleSharp } from "react-icons/io5";
 import DataContext from "../context/data/dataContext";
 import { useContext } from "react";
 
-import { useParams } from "react-router-dom";
-
-
-
 export default function SuggestionItemList({product}){
     const { upvotes, title, description, category, comments, active } = product;
-
+    
     const dataContext = useContext(DataContext)
     const { updateVote, sugProductClicked } = dataContext
 
@@ -18,26 +14,20 @@ export default function SuggestionItemList({product}){
     const onUpvoteClick = (e) => {
 
         //getting all the values from every click on each element
-        const btn = e.target.tagName === "DIV"
-        ? e.target.parentNode 
-        : e.target.tagName === "path"
-        ? e.target.parentNode.parentNode
-        : e.target.parentNode ;
-
-        let newActiveState = !active;
-       let upVoteValue = parseInt(btn.textContent)
-
+        const btn = e.target.textContent;
         console.log(btn)
 
+        let newActiveState = !active;
+        let upVoteValue = parseInt(btn)
+
         updateVote(upVoteValue ,product.id, newActiveState);
-        e.stopPropagation();
+        e.preventDefault();
 
     }
 
     //we have to populate activeRequest through click on item of the list component
     const clickPopulateReq = () => {
         let clickedItem = product;
-        console.log(clickedItem)
         sugProductClicked(clickedItem)
     }
 
@@ -56,9 +46,7 @@ export default function SuggestionItemList({product}){
             py={[ "6" , "6" , "7", "7"]}
             px={[ "6" , "6" , "8", "8"]}>
                 <Flex alignItems="center">
-                    <Box onClick={onUpvoteClick}>
-                        <UpvoteSuggestion number={upvotes} />
-                    </Box>
+                    <UpvoteSuggestion upVoteClick={onUpvoteClick} number={upvotes} active={active} />
                     <Box>
                         <Heading 
                         as="h3"

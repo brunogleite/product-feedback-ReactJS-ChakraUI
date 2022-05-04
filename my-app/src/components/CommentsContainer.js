@@ -1,15 +1,12 @@
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { Box, Heading } from "@chakra-ui/react";
 
-import ReplyInput from "./replyInput";
+
 import Comment from "./comment";
 
 export default function CommentsContainer({comments}){
 
-    console.log(comments)
-
     return(
-        <Box bgColor="white" borderRadius="sm">
+        <Box bgColor="white" borderRadius="sm" px="8" pt="6">
             <Heading as="h3" fontSize="headingXS">{comments === undefined ? "": comments.length} Comments</Heading>
             {comments === undefined ? "" : comments.map((comment, index) => {
                 return <Comment key={index} comment={comment} />
